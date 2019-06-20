@@ -732,9 +732,9 @@
     lodash "^4.17.11"
 
 "@hatiolab/things-shell@*":
-  version "0.6.145"
-  resolved "https://registry.yarnpkg.com/@hatiolab/things-shell/-/things-shell-0.6.145.tgz#4061a93bbed98f0d2171b6498d871408c772e199"
-  integrity sha512-urMe1nPDEooGdyKf2/UTKK6iXT1b9zdYEYJYgyL+5ZqojNEUVSzaGSOIXXWjxuU+SaTNO7BggsfjDCt/5t7Tvg==
+  version "0.6.151"
+  resolved "https://registry.yarnpkg.com/@hatiolab/things-shell/-/things-shell-0.6.151.tgz#f97ffebd6bf0a8f6775eb02c7cc21733cb52907f"
+  integrity sha512-YODMTNwjUDl63MDzvr8dLdf9GLRyrTO4U33JL+3t9qCZkkqdWxxMSfKVe65/IPefdIauhkgVg5u8cKXtJdqVXA==
   dependencies:
     "@babel/cli" "^7.4.3"
     "@babel/core" "^7.4.3"
@@ -1688,9 +1688,9 @@
     "@hatiolab/things-scene" "*"
 
 "@things-scene/table@*":
-  version "2.5.4"
-  resolved "https://registry.yarnpkg.com/@things-scene/table/-/table-2.5.4.tgz#b97045ffc95ed49d0e9807b662d50fb984018a44"
-  integrity sha512-Em8ScybDppeN1a4Vew8feS+YUQl856HUlWjD1OR+ajB7e2LleFyybodtc+s6c1e12vMjS8C7zezHdZlrkzi3aw==
+  version "2.5.5"
+  resolved "https://registry.yarnpkg.com/@things-scene/table/-/table-2.5.5.tgz#2b67887c97a8169e244bad41e11f768a72965256"
+  integrity sha512-jPS/FqtbiCZRpZIDGSjFgWOYifIUu4KgM8lwr8nXC6HYeWaEE+1kqzioj3lK96bKIyUQY05gcdNs3u12Zs81mA==
   dependencies:
     "@hatiolab/things-scene" "*"
     lit-element "^2.0.1"
