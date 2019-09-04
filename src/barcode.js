@@ -244,7 +244,6 @@ const REDRAW_PROPS = [
 
 import { Component, RectPath, Shape, error } from "@hatiolab/things-scene";
 import bwipjs from "bwip-js";
-import throttle from "lodash/throttle";
 
 export default class Barcode extends RectPath(Shape) {
   static get nature() {
@@ -261,18 +260,6 @@ export default class Barcode extends RectPath(Shape) {
     }
 
     return this._canvas;
-  }
-
-  get throttler() {
-    if (!this._throttler) {
-      this._throttler = throttle(
-        this.buildImage.bind(this),
-        200,
-        false /* 마지막에 확실히 실행 */
-      );
-    }
-
-    return this._throttler;
   }
 
   dispose() {
@@ -342,13 +329,12 @@ export default class Barcode extends RectPath(Shape) {
   }
 
   onchange(props) {
-    REDRAW_PROPS.every(prop => {
+    for (let prop of REDRAW_PROPS) {
       if (prop in props) {
-        this.throttler();
-        return false;
+        this.buildImage();
+        return;
       }
-      return true;
-    });
+    }
   }
 }
 
