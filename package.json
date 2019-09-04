@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "@hatiolab/things-scene": "*",
-    "bwip-js": "^1.7.2",
-    "underscore": "^1.9.1"
+    "bwip-js": "^1.7.2"
   }
 }
