@@ -274,7 +274,7 @@ export default class Barcode extends RectPath(Shape) {
   buildImage() {
     var {
       symbol,
-      text,
+      text = "",
       width,
       height,
       includetext,
