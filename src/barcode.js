@@ -274,7 +274,7 @@ export default class Barcode extends RectPath(Shape) {
   buildImage() {
     var {
       symbol,
-      text = "",
+      text,
       width,
       height,
       includetext,
@@ -282,6 +282,11 @@ export default class Barcode extends RectPath(Shape) {
       paddingwidth = 0,
       paddingheight = 0
     } = this.state;
+
+    if (!text) {
+      console.warn("barcode text is not specified.");
+      return;
+    }
 
     this.canvas.width = width;
     this.canvas.height = height;
