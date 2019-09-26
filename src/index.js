@@ -1,3 +1,5 @@
 import Barcode from "./barcode";
 
-export default [Barcode];
+import BarcodeScanner from "./barcode-scanner";
+import LabelPrinter from "./label-printer";
+export default [Barcode, BarcodeScanner, LabelPrinter];
