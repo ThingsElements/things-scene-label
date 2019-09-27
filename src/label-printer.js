@@ -60,7 +60,7 @@ export default class LabelPrinter extends ValueHolder(RectPath(Shape)) {
   }
 
   onchangeData(after, before) {
-    this.print(after);
+    this.print(after.data);
   }
 
   async print(data) {
