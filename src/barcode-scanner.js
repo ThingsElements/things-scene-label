@@ -6,79 +6,56 @@ const NATURE = {
   mutable: false,
   resizable: true,
   rotatable: true,
-  properties : [{
-    type: 'number',
-    label: 'value',
-    name: 'value'
-  },{
-    type: 'angle',
-    label: 'angle property',
-    name: 'propAngle'
-  },{
-    type: 'string',
-    label: 'string property',
-    name: 'propString'
-  },{
-    type: 'color',
-    label: 'color property',
-    name: 'propColor'
-  }]
+  properties: []
 }
 
-import { Component, ValueHolder, RectPath, Shape, error } from '@hatiolab/things-scene';
+import { Component, HTMLOverlayElement } from '@hatiolab/things-scene'
+import '@things-factory/barcode-ui'
 
-export default class BarcodeScanner extends ValueHolder(RectPath(Shape)) {
-
+export default class BarcodeScanner extends HTMLOverlayElement {
   static get nature() {
-    return NATURE;
+    return NATURE
+  }
+
+  get data() {
+    return this._data
+  }
+
+  set data(data) {
+    this._data = data
+    this.executeMappings() // 이전 데이터와 비교하지 않고 매핑을 실행하기 위함
   }
 
   dispose() {
-    super.dispose();
+    super.dispose()
   }
 
-  render(context) {
-    var {
-      top,
-      left,
-      height,
-      width,
-      backgroundColor = 'transparent',
-      reverse
-    } = this.model;
+  ready() {
+    super.ready()
+    var scanInput = this.element
+    // 엔터 키 입력 시 컴포넌트 데이터 세팅
+    scanInput.addEventListener('keyup', e => {
+      if (e.keyCode === 13) {
+        e.preventDefault()
+        if (scanInput.input) this.data = scanInput.input.value
+      }
+    })
 
-    this.animOnValueChange(this.value);
-
-    // background의 색상
-    context.beginPath();
-    context.rect(left, top, width, height);
-
-    context.fillStyle = backgroundColor;
-    context.fill();
-
-    // value의 색상
-    context.beginPath();
-
-    var drawValue = width - width * Math.max(Math.min(this.animValue, 100), 0) / 100;
-    drawValue = Math.max(Math.min(drawValue, width), 0);
-
-    context.rect(left + drawValue, top, width - drawValue, height);
-
-    this.drawFill(context);
-
-    context.closePath();
-
-    context.beginPath();
-
-    context.rect(left, top, width, height);
+    // 스캔 시 컴포넌트 데이터 세팅
+    var scan = scanInput.scan
+    scanInput.scan = e =>
+      scan.call(scanInput, e).then(() => {
+        if (scanInput.input) this.data = scanInput.input.value
+      })
   }
 
-  postrender(context) {
-    this.drawStroke(context);
-    this.drawText(context);
+  setElementProperties(input) {
+    input.value = this._data = this.text
   }
 
-  get controls() {}
+  get tagName() {
+    return 'barcode-scanable-input'
+  }
 }
 
-Component.register('barcode-scanner', BarcodeScanner);
+Component.register('barcode-scanner', BarcodeScanner)

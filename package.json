@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@hatiolab/things-scene": "*",
+    "@things-factory/barcode-ui": "*",
     "bwip-js": "^1.7.2"
   }
 }
