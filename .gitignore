@@ -5,7 +5,8 @@ npm-debug.log*
 coverage
 node_modules
 bower_components
-dist-client
+dist-client/
+dist/
 *.report.html
 licenses/*.js
 db.sqlite
