@@ -1,10 +1,12 @@
 export class USBPrinter {
-  constructor(filters) {
-    this.filters = filters || [
+  constructor(
+    filters = [
       {
         vendorId: 0x0a5f /* zebra */
       }
-    ];
+    ]
+  ) {
+    this.filters = filters;
   }
 
   async setup() {
@@ -18,7 +20,10 @@ export class USBPrinter {
     await this.device.open();
     if (!this.device.configuration) {
       await this.device.selectConfiguration(1);
-      await this.device.claimInterface(0);
+    }
+    await this.device.claimInterface(0);
+    if (!this.device.configuration.interfaces[0].alternate) {
+      await this.device.selectAlternateInterface(0, 0);
     }
   }
 
