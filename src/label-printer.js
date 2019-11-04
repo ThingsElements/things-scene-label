@@ -99,7 +99,7 @@ export default class LabelPrinter extends ValueHolder(RectPath(Shape)) {
           vendorId
             ? [
                 {
-                  vendorId
+                  vendorId: Number(vendorId)
                 }
               ]
             : null
