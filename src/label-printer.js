@@ -13,7 +13,7 @@ const NATURE = {
       name: "vendorId"
     },
     {
-      type: "string",
+      type: "board-selector",
       label: "board id",
       name: "boardId"
     }
