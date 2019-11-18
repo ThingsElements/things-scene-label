@@ -4,8 +4,6 @@
   "version": "0.1.10",
   "things-scene": true,
   "main": "src/index.js",
-  "module": "dist/things-scene-label.mjs",
-  "jsnext:main": "dist/things-scene-label.mjs",
   "browser": "src/index.js",
   "author": "lllleeee",
   "scripts": {

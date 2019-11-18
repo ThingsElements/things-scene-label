@@ -243,7 +243,7 @@ const REDRAW_PROPS = [
 ];
 
 import { Component, RectPath, Shape, error } from "@hatiolab/things-scene";
-import bwipjs from "bwip-js";
+import bwipjs from "!bwip-js";
 
 export default class Barcode extends RectPath(Shape) {
   static get nature() {
