@@ -1,7 +1,7 @@
 {
   "name": "@things-scene/label",
   "description": "label component for things-scene",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "things-scene": true,
   "main": "src/index.js",
   "browser": "src/index.js",
